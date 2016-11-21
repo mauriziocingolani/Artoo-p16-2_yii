@@ -16,11 +16,11 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
-            <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+        <title><?php echo CHtml::encode($this->pageTitle); ?></title>
     </head>
 
     <body>
-
+        
         <div class="container" id="page">
 
             <div id="header">
