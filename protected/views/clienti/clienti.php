@@ -25,12 +25,15 @@ $messaggio = Yii::app()->user->getFlash('eliminazione');
                 <td><?php echo $cli->Cognome; ?></td>
                 <td><?php echo $cli->Email; ?></td>
                 <td>
-                    <?= CHtml::link('<i class="fa fa-pencil"></i> Modifica', array('/cliente/' . $cli->ClienteID)); ?>
+                    <?= CHtml::link('<i class="fa fa-pencil"></i>', array('/cliente/' . $cli->ClienteID)); ?>
                 </td>
                 <td>
-                    <form method="post" onsubmit="return confirm('Sei sicuro di voler eliminare questo cliente?');">
+                    <form id="<?= $cli->ClienteID; ?>_form" method="post">
                         <input type="hidden" name="ClienteID" value="<?= $cli->ClienteID; ?>" />
-                        <button type="submit">Elimina cliente</button>
+                        <a href="" onclick="if (confirm('Sei sicuro di voler eliminare questo cliente?')) {
+                                            document.getElementById('<?= $cli->ClienteID; ?>_form').submit();
+                                        }
+                                        return false;" ><i class="fa fa-trash-o"></i></a>
                     </form>
                 </td>
             </tr>
