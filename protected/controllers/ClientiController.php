@@ -11,8 +11,12 @@ class ClientiController extends Controller {
         ));
     }
 
-    public function actionCliente() {
-        $cliente = new Cliente;
+    public function actionCliente($clienteid = null) {
+        if ((int) $clienteid > 0) :
+            $cliente = Cliente::model()->findByPk($clienteid);
+        else :
+            $cliente = new Cliente;
+        endif;
         if (count($_POST) > 0) :
             $cliente->setAttributes($_POST['Cliente']);
             if ($cliente->save())

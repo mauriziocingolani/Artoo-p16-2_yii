@@ -30,8 +30,9 @@ return array(
             'urlFormat' => 'path',
             'showScriptName' => false,
             'rules' => array(
-                'clienti'=>'clienti/clienti',
-                'cliente/nuovo'=>'clienti/cliente',
+                'clienti' => 'clienti/clienti',
+                'cliente/nuovo' => 'clienti/cliente',
+                'cliente/<clienteid:\d+>' => 'clienti/cliente',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),

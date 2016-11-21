@@ -1,4 +1,6 @@
-<?php ?>
+<?php
+/* @var $cli Cliente */
+?>
 
 <h1>Lista clienti</h1>
 
@@ -15,6 +17,7 @@
                 <td><?= $cli->Nome; ?></td>
                 <td><?php echo $cli->Cognome; ?></td>
                 <td><?php echo $cli->Email; ?></td>
+                <td><?= CHtml::link('<i class="fa fa-pencil"></i> Modifica', array('/cliente/' . $cli->ClienteID)); ?></td>
             </tr>
         <?php endforeach; ?>
     </table>
