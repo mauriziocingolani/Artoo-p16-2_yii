@@ -36,6 +36,7 @@ class MyIdentity implements IUserIdentity {
         return $this->_username;
     }
 
+
     public function getPersistentStates() {
         
     }

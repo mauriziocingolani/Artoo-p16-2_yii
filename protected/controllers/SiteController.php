@@ -4,6 +4,28 @@ class SiteController extends Controller {
 
     public $layout = 'column1';
 
+    public function filters() {
+        return array(
+            'accessControl',
+        );
+    }
+
+    public function accessRules() {
+        return array(
+            array('deny',
+                'users' => array('?'),
+                'actions' => array('test'),
+            ),
+            array('deny',
+                'actions' => array('test'),
+                'expression'=>'Yii::app()->user->getName()!="admin" ',
+            ),
+            array('allow',
+                'users' => array('*'),
+            ),
+        );
+    }
+
     /**
      * Declares class-based actions.
      */
@@ -59,7 +81,7 @@ class SiteController extends Controller {
      * Displays the login page
      */
     public function actionLogin() {
-        $identity = new MyIdentity('admin', 'admin');
+        $identity = new MyIdentity('pippo', 'password');
         if ($identity->authenticate()) {
             Yii::app()->user->login($identity);
             $this->redirect(array('/'));
